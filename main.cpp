@@ -3,9 +3,9 @@
 
 int main(void)
 {
+    SetTraceLogLevel(LOG_NONE);
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE  );
     InitWindow(800, 450, "raylib [core] example - basic window");
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-
     while (!WindowShouldClose())
     {
             int h = 1000;
@@ -26,6 +26,8 @@ int main(void)
         BeginDrawing();
         DrawTexture(texture, 0, 0, WHITE);
         EndDrawing();
+        UnloadTexture(texture);
+        UnloadImage(image);
     }
 
     CloseWindow();
